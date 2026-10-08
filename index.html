@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>The Wang Poast Archive — Alex Wang × Muse</title>
-<meta name="description" content="A fan-made parody archive of Alex Wang's funniest fictional Muse tweets, with visuals."/>
+<meta name="description" content="An archive of Alexandr Wang's real Muse tweets — with their actual photos and videos."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,600;0,6..72,800;1,6..72,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -68,8 +68,13 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sys
 .t-handle{color:var(--muted);font-size:.88rem}
 .t-x{margin-left:auto;font-weight:900;font-size:1.05rem;color:var(--ink)}
 .t-text{font-size:1.05rem;line-height:1.5;white-space:pre-line}
-.t-media{border:2px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--coal)}
-.t-media svg{display:block;width:100%;height:auto}
+.t-media{border:2px solid var(--line);border-radius:12px;overflow:hidden;background:var(--coal)}
+.t-media img{display:block;width:100%;height:auto;max-height:420px;object-fit:cover;cursor:zoom-in}
+.t-media video{display:block;width:100%;max-height:460px;background:#000}
+.t-media.grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--line)}
+.t-media.grid img{height:210px;object-fit:cover}
+.t-text a{color:#1d6fd1;font-weight:600;text-decoration:none}
+.t-text a:hover{text-decoration:underline}
 .t-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .tag{border:1.5px solid var(--line);border-radius:999px;padding:3px 9px;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#fff}
 .meter{flex:1;min-width:120px;height:8px;border:1.5px solid var(--line);border-radius:99px;overflow:hidden;background:#fff}
@@ -102,18 +107,18 @@ footer{max-width:1180px;margin:0 auto;padding:24px;border-top:2px solid var(--li
 
 <section class="hero">
   <div>
-    <div class="mono" style="color:var(--amber);font-weight:700">ALEX WANG · META · FICTITIOUS TIMELINE, REAL AFFECTION</div>
+    <div class="mono" style="color:var(--amber);font-weight:700">ALEXANDR WANG · META · THE REAL TIMELINE, VERBATIM</div>
     <h1>The tweets. The screenshots. <em>The lore.</em></h1>
-    <p class="lead">Every (lovingly fictional) Alex Wang banger about Muse — now as full tweet cards with the attached terminal screenshots, diffs, and charts that made them famous. Click any image to zoom.</p>
+    <p class="lead">Twenty REAL Alexandr Wang bangers about Muse — verbatim from <a href="https://x.com/alexandr_wang" target="_blank" rel="noopener">@alexandr_wang</a>, with their actual photos and videos attached. Click any image to zoom, or jump to the original on X.</p>
     <div><span class="prompt-line">$ muse <b>"show me alex's best poasts"</b> <span class="caret"></span></span></div>
   </div>
   <div class="term" aria-label="Muse terminal preview">
     <div class="term-head"><span>Muse</span><span style="flex:1"></span><span>session: azure-mintaka</span></div>
     <div class="term-body" id="termBody"></div>
     <div class="term-stats">
-      <div class="term-stat"><b data-count="12">0</b><span>Poasts</span></div>
-      <div class="term-stat"><b data-count="42069">0</b><span>Likes</span></div>
-      <div class="term-stat"><b data-count="99">0</b><span>% Unhinged</span></div>
+      <div class="term-stat"><b data-count="20">0</b><span>Real poasts</span></div>
+      <div class="term-stat"><b data-count="39245">0</b><span>Likes</span></div>
+      <div class="term-stat"><b data-count="12534644">0</b><span>Views</span></div>
     </div>
   </div>
 </section>
@@ -126,6 +131,7 @@ footer{max-width:1180px;margin:0 auto;padding:24px;border-top:2px solid var(--li
       <option value="unhinged">Sort: Most unhinged</option>
       <option value="views">Sort: Most viewed</option>
       <option value="newest">Sort: Newest first</option>
+      <option value="oldest">Sort: Oldest first</option>
     </select>
   </div>
   <div class="tabs" id="tabs"></div>
@@ -146,7 +152,7 @@ footer{max-width:1180px;margin:0 auto;padding:24px;border-top:2px solid var(--li
 <p class="empty" id="empty" hidden>No poasts match that search. Alex is speechless (rare).</p>
 
 <footer>
-  <span>Fan-made parody — not affiliated with Alex Wang or Meta. Tweets and images are fictional illustrations.</span>
+  <span>Fan-made archive — not affiliated with Alexandr Wang or Meta. All tweets are real, fetched from <a href="https://x.com/alexandr_wang" target="_blank" rel="noopener">x.com/alexandr_wang</a> on Oct 8, 2026; counts as of fetch. Unhinged-o-meter ratings are our own editorial nonsense.</span>
   <span class="mono">Muse ✦ POASTS ✦ LORE</span>
 </footer>
 
@@ -157,6 +163,7 @@ footer{max-width:1180px;margin:0 auto;padding:24px;border-top:2px solid var(--li
   </div>
 </div>
 
+<script src="data.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
