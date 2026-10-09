@@ -1,4 +1,29 @@
 // The Wang Poast Archive — REAL @alexandr_wang tweets about Muse (data in data.js).
+// Editorial funniness ranking (ours, 100 = funniest). Facts stay in data.js; jokes scored here.
+const FUNNY = {
+  "2108230558774104371": 100, // muse onto his greatest challenge yet: finding love
+  "2107562916056891537": 96,  // clearing my schedule today to give muse media training 😑
+  "2107859231567495383": 93,  // you'll notice the interface is prettttyyyyy slick
+  "2107857066174112175": 90,  // 🚨 MUSE ALERT 🚨 tablet superintelligence needs :))
+  "2100714048329580957": 85,  // muse for mac is HERE!!
+  "2102921739621806290": 81,  // video chat (iphone screen record doesn't record the sound…)
+  "2102919554032910525": 77,  // people preferred muse (unsurprisingly)
+  "2103551714536439951": 72,  // Here's to the wanting. Here's to the dreaming.
+  "2100829303563067587": 66,  // muse is now the #1 app in the App Store!
+  "2102919552254484765": 58,  // MUSE RESEARCH ALERT: Realtime Avatar
+  "2041913097968103636": 50,  // 9/ certainly rough edges we will polish
+  "2041909376508985381": 42,  // 1/ today we're releasing muse spark
+  "2041909388852748717": 34,  // 7/ this is step one. bigger models incoming
+  "2041909381667958855": 28,  // 3/ contemplating mode
+  "2041909380208324687": 22,  // 2/ natively multimodal reasoning model
+  "2102919555647697232": 17,  // 3/ watermarked as AI without adding latency
+  "2041909386411676095": 13,  // 5/ instant and thinking modes. shopping mode
+  "2041909387661615278": 10,  // 6/ sees and understands the world around you
+  "2041909384293576901": 5,   // 4/ extensive safety evaluations (least funny genre)
+  "2041909390241100113": 2,   // 8/ read more here: [link]
+};
+POASTS.forEach(p => { p.funny = FUNNY[p.id] ?? 1; });
+[...POASTS].sort((a,b) => b.funny - a.funny).forEach((p,i) => { p.funnyRank = i + 1; });
 const CATS = ["All","Launch","Milestones","Research","Unhinged"];
 let activeCat = "All";
 const liked = new Set();
@@ -35,7 +60,7 @@ function tweetCard(p){
       <a class="t-x" href="${p.url}" target="_blank" rel="noopener" aria-label="View on X">𝕏</a></div>
     <p class="t-text">${linkify(p.text)}</p>
     ${mediaHTML(p)}
-    <div class="t-meta"><span class="tag">${p.cat}</span>
+    <div class="t-meta"><span class="tag rank">#${p.funnyRank} funniest · ${p.funny}/100</span><span class="tag">${p.cat}</span>
       <span class="mono" style="font-weight:700">UNHINGED ${p.unhinged}%</span>
       <span class="meter"><span class="meter-fill" style="display:block;width:${p.unhinged}%"></span></span></div>
     <div class="t-actions">
@@ -60,6 +85,7 @@ function visiblePoasts(){
   const list = POASTS.filter(p =>
     (activeCat === "All" || p.cat === activeCat) &&
     (!q || p.text.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q)));
+  if (sort === "funny") list.sort((a,b) => b.funny - a.funny);
   if (sort === "likes") list.sort((a,b) => b.likes - a.likes);
   if (sort === "unhinged") list.sort((a,b) => b.unhinged - a.unhinged);
   if (sort === "views") list.sort((a,b) => b.views - a.views);

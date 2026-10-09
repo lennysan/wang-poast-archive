@@ -77,6 +77,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sys
 .t-text a:hover{text-decoration:underline}
 .t-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .tag{border:1.5px solid var(--line);border-radius:999px;padding:3px 9px;font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;background:#fff}
+.tag.rank{background:var(--gold)}
 .meter{flex:1;min-width:120px;height:8px;border:1.5px solid var(--line);border-radius:99px;overflow:hidden;background:#fff}
 .meter-fill{height:100%;background:repeating-linear-gradient(45deg,var(--amber) 0 8px,#ff7a33 8px 16px)}
 .t-actions{display:flex;align-items:center;gap:6px;border-top:1px solid var(--soft);padding-top:10px;color:var(--muted);font-size:.86rem;font-weight:600}
@@ -127,6 +128,7 @@ footer{max-width:1180px;margin:0 auto;padding:24px;border-top:2px solid var(--li
   <div class="controls-row">
     <input id="search" type="search" placeholder="Search the timeline… try “div” or “shipped”" aria-label="Search poasts"/>
     <select id="sort" aria-label="Sort poasts">
+      <option value="funny" selected>Sort: Funniest first 🏆</option>
       <option value="likes">Sort: Most liked</option>
       <option value="unhinged">Sort: Most unhinged</option>
       <option value="views">Sort: Most viewed</option>
@@ -152,7 +154,7 @@ footer{max-width:1180px;margin:0 auto;padding:24px;border-top:2px solid var(--li
 <p class="empty" id="empty" hidden>No poasts match that search. Alex is speechless (rare).</p>
 
 <footer>
-  <span>Fan-made archive — not affiliated with Alexandr Wang or Meta. All tweets are real, fetched from <a href="https://x.com/alexandr_wang" target="_blank" rel="noopener">x.com/alexandr_wang</a> on Oct 8, 2026; counts as of fetch. Unhinged-o-meter ratings are our own editorial nonsense.</span>
+  <span>Fan-made archive — not affiliated with Alexandr Wang or Meta. All tweets are real, fetched from <a href="https://x.com/alexandr_wang" target="_blank" rel="noopener">x.com/alexandr_wang</a> on Oct 8, 2026; counts as of fetch. Funniness rankings and Unhinged-o-meter ratings are our own editorial nonsense.</span>
   <span class="mono">Muse ✦ POASTS ✦ LORE</span>
 </footer>
 
